@@ -1,11 +1,24 @@
+
 import React from 'react'
-//import Navbar from '../components/navbar'
+import "../../app//home/style.css"
+
 
 function home() {
   return (
-    <div>
-    
-
+    <div className="container">
+      <div className="home">
+        
+        <div className="section">
+          <div className="name">Rishabh</div>
+          <div className="nameend">Katiyar</div>
+          <div className="resume">RESUME</div>
+        </div>
+      
+      </div>
+      <br />
+      <div className="about">
+        
+      </div>
     </div>
     
     

@@ -1,0 +1,53 @@
+.container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.home {
+  background-image: url(../../public/images/Background_home.png);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 90vh;
+  z-index: -1;
+  background-color: #160430;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  color: white;
+  width: 40%;
+    
+  
+}
+
+.name , .nameend {
+  font-size: 100px;
+  font-weight: 700;
+}
+
+.nameend{
+  margin-right: 45px;
+}
+
+.resume{
+    font-size: 20px ;
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 50px;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    margin-right: 250px;
+
+}
