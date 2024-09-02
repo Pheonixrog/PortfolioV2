@@ -15,9 +15,10 @@ function home() {
         </div>
       
       </div>
-      <br />
+      
       <div className="about">
-        
+     
+
       </div>
     </div>
     
