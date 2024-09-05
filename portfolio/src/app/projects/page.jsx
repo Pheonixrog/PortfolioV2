@@ -1,59 +1,41 @@
 'use client'
 
-import React, { useEffect, useState, useRef } from 'react'
-import * as THREE from 'three'
+import React, { useEffect, useState, useRef, useMemo } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Github, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Canvas, useFrame } from '@react-three/fiber'
+import { Points, PointMaterial, Preload } from '@react-three/drei'
+import * as random from 'maath/random/dist/maath-random.esm'
 
-const ProjectShowcase = () => {
+const StarField = (props) => {
+  const ref = useRef()
+  const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.2 }))
+
+  useFrame((state, delta) => {
+    ref.current.rotation.x -= delta / 10
+    ref.current.rotation.y -= delta / 15
+  })
+
+  return (
+    <group rotation={[0, 0, Math.PI / 4]}>
+      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
+        <PointMaterial
+          transparent
+          color="#fff"
+          size={0.002}
+          sizeAttenuation={true}
+          depthWrite={false}
+        />
+      </Points>
+    </group>
+  )
+}
+
+function Component() {
   const [projects, setProjects] = useState([])
-  const canvasRef = useRef(null)
-
-  useEffect(() => {
-    // Three.js setup for the starry background
-    const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
-    const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, alpha: true })
-    renderer.setSize(window.innerWidth, window.innerHeight)
-
-    // Create stars
-    const starsGeometry = new THREE.BufferGeometry()
-    const starsMaterial = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 0.5 })
-    const starsVertices = []
-    for (let i = 0; i < 15000; i++) {
-      const x = (Math.random() - 0.5) * 2000
-      const y = (Math.random() - 0.5) * 2000
-      const z = -Math.random() * 2000
-      starsVertices.push(x, y, z)
-    }
-    starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starsVertices, 3))
-    const stars = new THREE.Points(starsGeometry, starsMaterial)
-    scene.add(stars)
-
-    camera.position.z = 5
-
-    const animate = () => {
-      requestAnimationFrame(animate)
-      stars.rotation.y += 0.0002
-      stars.rotation.x += 0.0001
-      renderer.render(scene, camera)
-    }
-    animate()
-
-    // Handle window resize
-    const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight
-      camera.updateProjectionMatrix()
-      renderer.setSize(window.innerWidth, window.innerHeight)
-    }
-
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
 
   useEffect(() => {
     setProjects([
@@ -95,12 +77,17 @@ const ProjectShowcase = () => {
   }, [])
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full -z-10" />
+    <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden relative">
+      <div className="absolute inset-0 z-0">
+        <Canvas camera={{ position: [0, 0, 1] }}>
+          <StarField />
+          <Preload all />
+        </Canvas>
+      </div>
       
-      <main className="container mx-auto px-4 py-16">
+      <main className="container mx-auto px-4 py-16 relative z-10">
         <motion.h1 
-          className="text-5xl md:text-6xl font-bold mb-8 text-center"
+          className="text-5xl md:text-6xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -127,7 +114,7 @@ const ProjectShowcase = () => {
         </div>
       </main>
 
-      <footer className="bg-black bg-opacity-50 backdrop-blur-md py-8 mt-16">
+      <footer className="bg-gray-900 bg-opacity-50 backdrop-blur-md py-8 mt-16 relative z-10">
         <div className="container mx-auto px-4 text-center">
           <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
         </div>
@@ -146,28 +133,36 @@ const ProjectSection = ({ project, index }) => {
       viewport={{ once: true }}
     >
       <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
-        <img src={project.image} alt={project.title} className="w-full h-auto rounded-lg shadow-2xl" />
-        {project.video && (
-          <video src={project.video} controls className="w-full mt-4 rounded-lg shadow-2xl">
-            Your browser does not support the video tag.
-          </video>
-        )}
+        <Card className="overflow-hidden bg-gray-800 border-gray-700">
+          <CardContent className="p-0">
+            <img src={project.image} alt={project.title} className="w-full h-auto" />
+            {project.video && (
+              <video src={project.video} controls className="w-full mt-4">
+                Your browser does not support the video tag.
+              </video>
+            )}
+          </CardContent>
+        </Card>
       </div>
       <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
-        <h2 className="text-3xl font-bold mb-4">{project.title}</h2>
+        <h2 className="text-3xl font-bold mb-4 text-purple-300">{project.title}</h2>
         <p className="text-gray-300 mb-6">{project.description}</p>
         <div className="flex flex-wrap gap-4">
           {project.github && (
-            <Link href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-full transition-colors">
-              <Github className="w-5 h-5" />
-              <span>GitHub</span>
-            </Link>
+            <Button variant="outline" asChild>
+              <Link href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
+                <Github className="w-5 h-5" />
+                <span>GitHub</span>
+              </Link>
+            </Button>
           )}
           {project.deployment && (
-            <Link href={project.deployment} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-full transition-colors">
-              <ExternalLink className="w-5 h-5" />
-              <span>Live Demo</span>
-            </Link>
+            <Button asChild>
+              <Link href={project.deployment} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
+                <ExternalLink className="w-5 h-5" />
+                <span>Live Demo</span>
+              </Link>
+            </Button>
           )}
         </div>
       </div>
@@ -178,52 +173,10 @@ const ProjectSection = ({ project, index }) => {
 const Separator = () => {
   const { scrollYProgress } = useScroll()
   const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1])
-  const separatorRef = useRef(null)
-
-  useEffect(() => {
-    const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 50, 0.1, 1000)
-    const renderer = new THREE.WebGLRenderer({ canvas: separatorRef.current, alpha: true })
-    renderer.setSize(window.innerWidth, 2)
-
-    const lineMaterial = new THREE.LineBasicMaterial({ color: 0x9900FF })
-    const lineGeometry = new THREE.BufferGeometry()
-    const lineVertices = []
-    for (let i = 0; i < 100; i++) {
-      const x = (i / 100) * window.innerWidth - window.innerWidth / 2
-      const y = Math.sin(i * 0.1) * 2
-      const z = 0
-      lineVertices.push(x, y, z)
-    }
-    lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(lineVertices, 3))
-    const line = new THREE.Line(lineGeometry, lineMaterial)
-    scene.add(line)
-
-    camera.position.z = 5
-
-    const animateSeparator = () => {
-      requestAnimationFrame(animateSeparator)
-      line.rotation.y += 0.01
-      renderer.render(scene, camera)
-    }
-    animateSeparator()
-
-    const handleResize = () => {
-      renderer.setSize(window.innerWidth, 2)
-      camera.aspect = window.innerWidth / 50
-      camera.updateProjectionMatrix()
-    }
-
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
 
   return (
     <motion.div
-      className="relative my-16 h-px"
+      className="relative my-16 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent"
       style={{
         scaleX,
         transformOrigin: "left",
@@ -231,10 +184,8 @@ const Separator = () => {
       initial={{ scaleX: 0 }}
       animate={{ scaleX: 1 }}
       transition={{ duration: 0.8 }}
-    >
-      <canvas ref={separatorRef} className="absolute top-0 left-0 w-full h-0.5" />
-    </motion.div>
+    />
   )
 }
 
-export default ProjectShowcase
+export default Component
