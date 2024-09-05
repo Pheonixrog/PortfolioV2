@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Moon, Sun, Github, Linkedin, Code, FileText } from "lucide-react"
 import { motion } from "framer-motion"
 import * as THREE from 'three'
-import AboutPage from "../about/page"
+
 
 const BubbleMaterial = shaderMaterial(
   {
@@ -199,10 +199,10 @@ const SocialLink = ({ href, icon: Icon, label }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="text-gray-400 hover:text-white transition-colors duration-200"
+    className="text-red-500 hover:text-white transition-colors duration-200"
     aria-label={label}
   >
-    <Icon className="w-6 h-6" />
+    <Icon className="w-7 h-7" />
   </a>
 )
 
@@ -265,7 +265,7 @@ export default function HomePage() {
         </Canvas>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
           <motion.h1 
-            className="text-6xl md:text-8xl font-bold mb-4 hover-target"
+            className="text-6xl md:text-8xl font-extrabold mb-4 hover-target"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
