@@ -98,7 +98,7 @@ export default function AboutPage() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <p className="text-xl mb-6 leading-relaxed">
-            I'm John Doe, a passionate Full Stack Developer with a keen interest in 3D web technologies. 
+            I&apos;m John Doe, a passionate Full Stack Developer with a keen interest in 3D web technologies. 
             With a blend of creativity and technical skills, I strive to create immersive and engaging web experiences.
             My journey in tech has been driven by curiosity and a constant desire to learn and innovate. 
             I believe in the power of technology to transform ideas into reality and solve real-world problems.
