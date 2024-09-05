@@ -8,7 +8,7 @@ import { Moon, Sun } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 
 const navItems = [
-  { name: 'Home', path: '/home' },
+  { name: 'Home', path: '/home' },   
   { name: 'About', path: '/about' },
   { name: 'Projects', path: '/projects' },
   { name: 'Skills', path: '/skills' },
