@@ -45,7 +45,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Link href="/home" className="text-2xl font-bold text-white">
+            <Link href="/" className="text-2xl font-bold text-white">
               RK
             </Link>
           </motion.div>
@@ -61,7 +61,7 @@ const Navbar = () => {
                   href={item.path}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     pathname === item.path
-                      ? 'text-purple-400'
+                      ? 'text-green-500'
                       : 'text-gray-300 hover:text-white'
                   }`}
                 >
@@ -113,7 +113,7 @@ const Navbar = () => {
                   href={item.path}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                     pathname === item.path
-                      ? 'text-purple-400'
+                      ? 'text-green-500'
                       : 'text-gray-300 hover:text-white'
                   }`}
                   onClick={() => setIsOpen(false)}
