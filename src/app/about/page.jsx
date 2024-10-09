@@ -1,25 +1,33 @@
-'use client'
+"use client";
 
-import React, { useRef, useEffect, useMemo } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { Points, PointMaterial, Preload } from '@react-three/drei'
-import * as random from 'maath/random/dist/maath-random.esm'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { Github, Linkedin, Code } from "lucide-react"
-import { useState } from 'react'
+import React, { useRef, useEffect, useMemo } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Points, PointMaterial, Preload } from "@react-three/drei";
+import * as random from "maath/random/dist/maath-random.esm";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Github, Linkedin, Code } from "lucide-react";
+import { useState } from "react";
 
 const StarField = (props) => {
-  const ref = useRef()
-  const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.2 }))
+  const ref = useRef();
+  const [sphere] = useState(() =>
+    random.inSphere(new Float32Array(5000), { radius: 1.2 })
+  );
 
   useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 10
-    ref.current.rotation.y -= delta / 15
-  })
+    ref.current.rotation.x -= delta / 10;
+    ref.current.rotation.y -= delta / 15;
+  });
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
+      <Points
+        ref={ref}
+        positions={sphere}
+        stride={3}
+        frustumCulled={false}
+        {...props}
+      >
         <PointMaterial
           transparent
           color="#fff"
@@ -29,8 +37,8 @@ const StarField = (props) => {
         />
       </Points>
     </group>
-  )
-}
+  );
+};
 
 const InterestBubble = ({ text, delay }) => (
   <motion.div
@@ -41,7 +49,7 @@ const InterestBubble = ({ text, delay }) => (
   >
     {text}
   </motion.div>
-)
+);
 
 const SocialLink = ({ href, icon: Icon, label }) => (
   <a
@@ -53,38 +61,41 @@ const SocialLink = ({ href, icon: Icon, label }) => (
   >
     <Icon className="w-6 h-6" />
   </a>
-)
+);
 
 export default function AboutPage() {
-  const containerRef = useRef(null)
+  const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"]
-  })
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"])
+    offset: ["start start", "end end"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
 
-  const interests = useMemo(() => [
-    "Web Development",
-    "3D Graphics",
-    "Machine Learning",
-    "UI/UX Design",
-    "Cloud Computing",
-    "Blockchain",
-  ], [])
+  const interests = useMemo(
+    () => [
+      "Web Development",
+      "3D Graphics",
+      "Machine Learning",
+      "UI/UX Design",
+      "Cloud Computing",
+      "Blockchain",
+    ],
+    []
+  );
 
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
 
-    window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-    }
-  }, [])
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 relative overflow-hidden">
@@ -95,25 +106,28 @@ export default function AboutPage() {
         </Canvas>
       </div>
 
-      <motion.div 
+      <motion.div
         className="cursor"
         style={{
-          position: 'fixed',
+          position: "fixed",
           left: mousePosition.x,
           top: mousePosition.y,
-          width: '20px',
-          height: '20px',
-          borderRadius: '50%',
-          backgroundColor: 'rgba(255, 255, 255, 0.3)',
-          mixBlendMode: 'difference',
-          pointerEvents: 'none',
+          width: "20px",
+          height: "20px",
+          borderRadius: "50%",
+          backgroundColor: "rgba(255, 255, 255, 0.3)",
+          mixBlendMode: "difference",
+          pointerEvents: "none",
           zIndex: 9999,
         }}
       />
 
-      <div ref={containerRef} className="max-w-4xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+      <div
+        ref={containerRef}
+        className="max-w-4xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8"
+      >
         <motion.div style={{ y }}>
-          <motion.h1 
+          <motion.h1
             className="text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 pt-20"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -122,49 +136,89 @@ export default function AboutPage() {
             About Me
           </motion.h1>
 
-          <motion.section 
+          <motion.section
             className="mb-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <p className="text-xl mb-6 leading-relaxed">
-              I&apos;m John Doe, a passionate Full Stack Developer with a keen interest in 3D web technologies. 
-              With a blend of creativity and technical skills, I strive to create immersive and engaging web experiences.
-              My journey in tech has been driven by curiosity and a constant desire to learn and innovate. 
-              I believe in the power of technology to transform ideas into reality and solve real-world problems.
+              Hi, I&apos;m <strong> Rishabh Katiyar</strong>, a Web Developer
+              and AI/ML enthusiast with a{" "}
+              <strong> B.E. in Computer Science and Engineering (CSE)</strong>.
+              My passion lies in leveraging emerging technologies to create
+              innovative solutions that can shape the future.
+              <br />
+              <br />
+              I have a strong command of Next.js, blockchain, and AI/ML, and
+              have led teams to develop impactful projects such as a
+              blockchain-based delivery system that enhances transparency, a
+              dark pattern detection tool promoting ethical web design, and an
+              educational website with an extension designed to improve
+              accessibility for diverse learners.
+              <br />
+              <br />
+              With proven strengths in team <strong>leadership </strong>,{" "}
+              <strong>problem-solving</strong>, and{" "}
+              <strong> project management</strong>, I thrive in collaborative
+              environments that aim for excellence and creativity. I am
+              committed to continuous learning and applying cutting-edge
+              technologies to real-world problems.
+              <br />
+              <br />
+              When I&apos;m not coding, you can find me enjoying cricket,
+              exploring sci-fi movies, or watching anime, which inspire my
+              creative thinking. I&apos;m excited to bring my expertise in web
+              development and AI/ML to forward-thinking teams that value
+              innovation.
+              <br />
+              <br />
+               <strong>Let’s connect if you&apos;re looking for a results-driven
+              developer with a passion for new technologies!</strong>
             </p>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="mb-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <h2 className="text-3xl font-semibold mb-6 text-purple-300">Areas of Interest</h2>
+            <h2 className="text-3xl font-semibold mb-6 text-purple-300">
+              Areas of Interest
+            </h2>
             <div className="flex flex-wrap gap-4">
               {interests.map((interest, index) => (
-                <InterestBubble key={interest} text={interest} delay={0.1 * index} />
+                <InterestBubble
+                  key={interest}
+                  text={interest}
+                  delay={0.1 * index}
+                />
               ))}
             </div>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="mb-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <h2 className="text-3xl font-semibold mb-6 text-purple-300">Education</h2>
+            <h2 className="text-3xl font-semibold mb-6 text-purple-300">
+              Education
+            </h2>
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-medium text-purple-200">Bachelor of Technology in Computer Science</h3>
+                <h3 className="text-xl font-medium text-purple-200">
+                  Bachelor of Technology in Computer Science
+                </h3>
                 <p className="text-gray-300">ABC University</p>
                 <p className="text-gray-400">Graduated: 2020</p>
               </div>
               <div>
-                <h3 className="text-xl font-medium text-purple-200">Senior Secondary</h3>
+                <h3 className="text-xl font-medium text-purple-200">
+                  Senior Secondary
+                </h3>
                 <p className="text-gray-300">XYZ School - Science Stream</p>
                 <p className="text-gray-400">Graduated: 2016</p>
               </div>
@@ -176,7 +230,9 @@ export default function AboutPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.8 }}
           >
-            <h2 className="text-3xl font-semibold mb-6 text-purple-300">Hobbies</h2>
+            <h2 className="text-3xl font-semibold mb-6 text-purple-300">
+              Hobbies
+            </h2>
             <ul className="list-disc list-inside space-y-2 text-gray-300">
               <li>3D Modeling and Animation</li>
               <li>Open Source Contributing</li>
@@ -185,18 +241,30 @@ export default function AboutPage() {
             </ul>
           </motion.section>
 
-          <motion.div 
+          <motion.div
             className="mt-12 flex justify-center space-x-6 pb-20"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1 }}
           >
-            <SocialLink href="https://github.com/johndoe" icon={Github} label="GitHub" />
-            <SocialLink href="https://linkedin.com/in/johndoe" icon={Linkedin} label="LinkedIn" />
-            <SocialLink href="https://leetcode.com/johndoe" icon={Code} label="LeetCode" />
+            <SocialLink
+              href="https://github.com/johndoe"
+              icon={Github}
+              label="GitHub"
+            />
+            <SocialLink
+              href="https://linkedin.com/in/johndoe"
+              icon={Linkedin}
+              label="LinkedIn"
+            />
+            <SocialLink
+              href="https://leetcode.com/johndoe"
+              icon={Code}
+              label="LeetCode"
+            />
           </motion.div>
         </motion.div>
       </div>
     </div>
-  )
+  );
 }

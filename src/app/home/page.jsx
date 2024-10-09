@@ -295,9 +295,12 @@ export default function HomePage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <Button className="bg-purple-600 hover:bg-purple-700 hover-target">
-              <FileText className="mr-2 h-4 w-4" /> Download Resume
-            </Button>
+           <a href="assets/resume.pdf" download>
+  <Button className="bg-purple-600 hover:bg-purple-700 hover-target">
+    <FileText className="mr-2 h-4 w-4" /> Download Resume
+  </Button>
+</a>
+
           </motion.div>
           
         </div>
