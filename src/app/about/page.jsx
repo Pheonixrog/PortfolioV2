@@ -210,17 +210,17 @@ export default function AboutPage() {
             <div className="space-y-6">
               <div>
                 <h3 className="text-xl font-medium text-purple-200">
-                  Bachelor of Technology in Computer Science
+                  B.E. in Computer Science
                 </h3>
-                <p className="text-gray-300">ABC University</p>
-                <p className="text-gray-400">Graduated: 2020</p>
+                <p className="text-gray-300">Chandigarh University</p>
+                <p className="text-gray-400">Graduated: 2022 - 2026 (ongoing) </p>
               </div>
               <div>
                 <h3 className="text-xl font-medium text-purple-200">
                   Senior Secondary
                 </h3>
-                <p className="text-gray-300">XYZ School - Science Stream</p>
-                <p className="text-gray-400">Graduated: 2016</p>
+                <p className="text-gray-300">Govt. Sr. Sec. School, Jandiali - Science Stream</p>
+                <p className="text-gray-400">Graduated: 2022</p>
               </div>
             </div>
           </motion.section>
