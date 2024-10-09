@@ -74,11 +74,11 @@ export default function AboutPage() {
   const interests = useMemo(
     () => [
       "Web Development",
-      "3D Graphics",
       "Machine Learning",
-      "UI/UX Design",
-      "Cloud Computing",
       "Blockchain",
+      "Computer Networks",
+      "Cloud Computing",
+      
     ],
     []
   );
@@ -234,10 +234,11 @@ export default function AboutPage() {
               Hobbies
             </h2>
             <ul className="list-disc list-inside space-y-2 text-gray-300">
-              <li>3D Modeling and Animation</li>
-              <li>Open Source Contributing</li>
-              <li>Reading Sci-Fi Novels</li>
-              <li>Hiking and Nature Photography</li>
+              
+              <li>Watching Sci-Fi movies and shows</li>
+              <li>cricket</li>
+              <li>Deplopment</li>
+              <li>Travelling</li>
             </ul>
           </motion.section>
 
@@ -248,17 +249,17 @@ export default function AboutPage() {
             transition={{ duration: 0.5, delay: 1 }}
           >
             <SocialLink
-              href="https://github.com/johndoe"
+              href="https://github.com/Pheonixrog"
               icon={Github}
               label="GitHub"
             />
             <SocialLink
-              href="https://linkedin.com/in/johndoe"
+              href="https://www.linkedin.com/in/rishabh-katiyar-30b136252/"
               icon={Linkedin}
               label="LinkedIn"
             />
             <SocialLink
-              href="https://leetcode.com/johndoe"
+              href="https://leetcode.com/u/rishabhasus9/"
               icon={Code}
               label="LeetCode"
             />
