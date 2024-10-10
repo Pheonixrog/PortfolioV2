@@ -7,6 +7,7 @@ import * as random from "maath/random/dist/maath-random.esm";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Github, Linkedin, Code } from "lucide-react";
 import { useState } from "react";
+import {  Mail, Phone } from "lucide-react";
 
 const StarField = (props) => {
   const ref = useRef();
@@ -78,7 +79,6 @@ export default function AboutPage() {
       "Blockchain",
       "Computer Networks",
       "Cloud Computing",
-      
     ],
     []
   );
@@ -173,8 +173,10 @@ export default function AboutPage() {
               innovation.
               <br />
               <br />
-               <strong>Let’s connect if you&apos;re looking for a results-driven
-              developer with a passion for new technologies!</strong>
+              <strong>
+                Let’s connect if you&apos;re looking for a results-driven
+                developer with a passion for new technologies!
+              </strong>
             </p>
           </motion.section>
 
@@ -213,13 +215,17 @@ export default function AboutPage() {
                   B.E. in Computer Science
                 </h3>
                 <p className="text-gray-300">Chandigarh University</p>
-                <p className="text-gray-400">Graduated: 2022 - 2026 (ongoing) </p>
+                <p className="text-gray-400">
+                  Graduated: 2022 - 2026 (ongoing){" "}
+                </p>
               </div>
               <div>
                 <h3 className="text-xl font-medium text-purple-200">
                   Senior Secondary
                 </h3>
-                <p className="text-gray-300">Govt. Sr. Sec. School, Jandiali - Science Stream</p>
+                <p className="text-gray-300">
+                  Govt. Sr. Sec. School, Jandiali - Science Stream
+                </p>
                 <p className="text-gray-400">Graduated: 2022</p>
               </div>
             </div>
@@ -235,10 +241,23 @@ export default function AboutPage() {
               Achievements
             </h2>
             <ul className="list-disc list-inside space-y-2 text-gray-300">
-              <li>DPBH: Dark Pattern Buster Hackathon 2023 Finalist, National-level hackathon held at IIT BHU</li>
-              <li>BFCET-hack: Secured the 3rd runner-up position at a national-level hackathon, demonstrating our team&apos;s excellencein innovation.</li>
-              <li>For two consecutive years (2018-2019, 2019-2020),  triumphed as state champion and subsequently excelled at thenational level in Mathematics and Science exhibition</li>
-              <li>Participated in multiple hackathons, securing top positions</li>
+              <li>
+                DPBH: Dark Pattern Buster Hackathon 2023 Finalist,
+                National-level hackathon held at IIT BHU
+              </li>
+              <li>
+                BFCET-hack: Secured the 3rd runner-up position at a
+                national-level hackathon, demonstrating our team&apos;s
+                excellencein innovation.
+              </li>
+              <li>
+                For two consecutive years (2018-2019, 2019-2020), triumphed as
+                state champion and subsequently excelled at thenational level in
+                Mathematics and Science exhibition
+              </li>
+              <li>
+                Participated in multiple hackathons, securing top positions
+              </li>
             </ul>
           </motion.section>
 
@@ -251,7 +270,6 @@ export default function AboutPage() {
               Hobbies
             </h2>
             <ul className="list-disc list-inside space-y-2 text-gray-300">
-              
               <li>Watching Sci-Fi movies and shows</li>
               <li>cricket</li>
               <li>Deplopment</li>
@@ -283,6 +301,25 @@ export default function AboutPage() {
           </motion.div>
         </motion.div>
       </div>
+
+      <footer className="bg-gray-800 text-white py-8 relative z-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-semibold mb-4">Contact Me</h2>
+          <div className="flex flex-col space-y-2">
+            <a
+              href="mailto:your.email@example.com"
+              className="flex items-center"
+            >
+              <Mail className="w-5 h-5 mr-2" />
+              your.email@example.com
+            </a>
+            <a href="tel:+1234567890" className="flex items-center">
+              <Phone className="w-5 h-5 mr-2" />
+              +1 (234) 567-890
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
