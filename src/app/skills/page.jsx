@@ -331,34 +331,34 @@ export default function Component() {
           Icon: Brain,
         },
         {
-          name: "PyTorch",
-          description: "Dynamic Computational Graphs, NLP",
+          name: "Pandas",
+          description: "Data Analysis, Data Preprocessing",
           Icon: Brain,
         },
         {
-          name: "scikit-learn",
-          description: "Machine Learning, Data Preprocessing",
+          name: "Matplotlib",
+          description: "Data Visualization",
           Icon: Brain,
         },
       ],
       levels: [
         { skill: "TensorFlow", level: 75 },
-        { skill: "PyTorch", level: 70 },
-        { skill: "scikit-learn", level: 65 },
+        { skill: "Pandas", level: 70 },
+        { skill: "Matplotlib", level: 65 },
       ],
       certificates: [
         {
           name: "Deep Learning Specialization",
-          issuer: "Coursera",
-          date: "2023",
-          image: "/placeholder.svg?height=100&width=200",
+          issuer: "NPTEL",
+          date: "2024",
+          image: "assets/Certifications/Introduction To Machine Learning - IITKGP.jpg?height=100&width=200",
         },
-        {
-          name: "Machine Learning Engineer",
-          issuer: "Udacity",
-          date: "2022",
-          image: "/placeholder.svg?height=100&width=200",
-        },
+        // {
+        //   name: "Machine Learning Engineer",
+        //   issuer: "Udacity",
+        //   date: "2022",
+        //   image: "/placeholder.svg?height=100&width=200",
+        // },
       ],
     },
     {
@@ -426,18 +426,18 @@ export default function Component() {
         { skill: "Windows", level: 85 },
       ],
       certificates: [
-        {
-          name: "Linux System Administrator",
-          issuer: "Linux Foundation",
-          date: "2023",
-          image: "/placeholder.svg?height=100&width=200",
-        },
-        {
-          name: "Windows Server Certification",
-          issuer: "Microsoft",
-          date: "2022",
-          image: "/placeholder.svg?height=100&width=200",
-        },
+        // {
+        //   name: "Linux System Administrator",
+        //   issuer: "Linux Foundation",
+        //   date: "2023",
+        //   image: "/placeholder.svg?height=100&width=200",
+        // },
+        // {
+        //   name: "Windows Server Certification",
+        //   issuer: "Microsoft",
+        //   date: "2022",
+        //   image: "/placeholder.svg?height=100&width=200",
+        // },
       ],
     },
     {
