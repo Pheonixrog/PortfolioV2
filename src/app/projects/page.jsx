@@ -101,7 +101,7 @@ function Component() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Explore my latest work in web development, blockchain, quantum computing, and augmented reality.
+          Explore my latest work in web development, blockchain, and more.
         </motion.p>
 
         <div className="space-y-32">
@@ -116,7 +116,7 @@ function Component() {
 
       <footer className="bg-gray-900 bg-opacity-50 backdrop-blur-md py-8 mt-16 relative z-10">
         <div className="container mx-auto px-4 text-center">
-          <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Rishabh Katiyar. All rights reserved.</p>
         </div>
       </footer>
     </div>

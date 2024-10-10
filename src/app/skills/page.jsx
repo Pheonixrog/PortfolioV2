@@ -32,7 +32,7 @@ const StarField = (props) => {
 }
 
 const SkillIcon = ({ Icon }) => (
-  <div className="bg-gray-800 p-2 rounded-full border-2 border-purple-500 shadow-lg shadow-purple-500/50">
+  <div className="bg-gray-800 p-2 rounded-full border-2 border-purple-500  ">
     <Icon className="w-6 h-6 text-purple-400" />
   </div>
 )
@@ -41,7 +41,7 @@ const Skill = ({ name, description, Icon }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
-    className="bg-gray-800 bg-opacity-50 backdrop-blur-sm p-4 rounded-lg shadow-lg hover:shadow-purple-500/50 transition-all duration-300 border border-purple-500/30 hover:scale-105"
+    className="bg-gray-800 bg-opacity-50 backdrop-blur-sm p-4 rounded-lg shadow-lg  transition-all duration-300 border border-purple-500/30 "
   >
     <div className="flex items-center mb-2">
       <SkillIcon Icon={Icon} />
@@ -55,7 +55,7 @@ const Certificate = ({ name, issuer, date, image }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
-    className="bg-gray-800 bg-opacity-50 backdrop-blur-sm p-4 rounded-lg shadow-lg hover:shadow-purple-500/50 transition-all duration-300 border border-purple-500/30 hover:scale-105"
+    className="bg-gray-800 bg-opacity-50 backdrop-blur-sm p-4 rounded-lg shadow-lg  transition-all duration-300 border border-purple-500/30 "
   >
     <div className="flex items-center mb-2">
       <Award className="w-6 h-6 text-purple-400 mr-2" />
@@ -70,11 +70,11 @@ const Certificate = ({ name, issuer, date, image }) => (
 const SkillProgressBar = ({ skill, level }) => (
   <div className="my-2">
     <div className="flex justify-between mb-1">
-      <span className="text-xs font-medium text-purple-200">{skill}</span>
-      <span className="text-xs font-medium text-purple-200">{level}%</span>
+      <span className="text-xs font-medium text-white">{skill}</span>
+      <span className="text-xs font-medium text-white">{level}%</span>
     </div>
     <div className="w-full bg-gray-700 rounded-full h-1.5">
-      <div className="bg-purple-500 h-1.5 rounded-full" style={{ width: `${level}%` }}></div>
+      <div className="bg-purple-300 h-1.5 rounded-full" style={{ width: `${level}%` }}></div>
     </div>
   </div>
 )
@@ -86,10 +86,10 @@ const SkillSection = ({ title, icon: Icon, skills = [], certificates = [], level
     <div className="mb-12">
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 text-2xl font-bold text-purple-300 hover:text-purple-100 transition-colors duration-300"
+        className="flex items-center space-x-2 text-2xl font-bold text-purple-300  transition-colors duration-300"
       >
         <SkillIcon Icon={Icon} />
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">{title}</span>
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-200">{title}</span>
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
@@ -109,7 +109,7 @@ const SkillSection = ({ title, icon: Icon, skills = [], certificates = [], level
               <div className="w-full lg:w-1/2 px-4">
                 {skills.length > 0 && (
                   <>
-                    <h3 className="text-xl font-semibold text-purple-300 mt-4 mb-2">Skills</h3>
+                    <h3 className="text-xl font-semibold text-white mt-4 mb-2">Skills</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                       {skills.map((skill, index) => (
                         <Skill key={index} {...skill} />
@@ -119,7 +119,7 @@ const SkillSection = ({ title, icon: Icon, skills = [], certificates = [], level
                 )}
                 {certificates.length > 0 && (
                   <>
-                    <h3 className="text-xl font-semibold text-purple-300 mt-4 mb-2">Certificates</h3>
+                    <h3 className="text-xl font-semibold text-white mt-4 mb-2">Certificates</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {certificates.map((cert, index) => (
                         <Certificate key={index} {...cert} />
@@ -131,7 +131,7 @@ const SkillSection = ({ title, icon: Icon, skills = [], certificates = [], level
               <div className="w-full lg:w-1/2 px-4">
                 {levels.length > 0 && (
                   <>
-                    <h3 className="text-xl font-semibold text-purple-300 mt-4 mb-2">Skill Levels</h3>
+                    <h3 className="text-xl font-semibold text-white mt-4 mb-2">Skill Levels</h3>
                     {levels.map((level, index) => (
                       <SkillProgressBar key={index} {...level} />
                     ))}
@@ -152,13 +152,13 @@ export default function Component() {
       title: "Coding Languages",
       icon: Code,
       skills: [
-        { name: "JavaScript", description: "ES6+, Async/Await, Functional Programming", Icon: Code },
-        { name: "Python", description: "Data analysis, Scripting, Machine Learning", Icon: Code },
-        { name: "Java", description: "OOP, Android development, Enterprise applications", Icon: Code },
+        { name: "JavaScript", description: "ES6+, Async/Await, Functional Programming , OOPs ", Icon: Code },
+        { name: "Python", description: "Numpy, Pandas, Machine Learning , Nural Networks", Icon: Code },
+        { name: "Java", description: "OOPs, Multithreading ", Icon: Code },
       ],
       levels: [
-        { skill: "JavaScript", level: 90 },
-        { skill: "Python", level: 85 },
+        { skill: "JavaScript", level: 70 },
+        { skill: "Python", level: 75 },
         { skill: "Java", level: 80 }
       ],
       certificates: [
@@ -170,13 +170,16 @@ export default function Component() {
       title: "Web Development",
       icon: Globe,
       skills: [
-        { name: "React", description: "Hooks, Context API, Redux, Next.js", Icon: Globe },
-        { name: "Vue.js", description: "Composition API, Vuex, Nuxt.js", Icon: Globe },
-        { name: "Node.js", description: "Express, RESTful APIs, GraphQL, Microservices", Icon: Globe },
+        { name: "React", description: "Hooks, Next.js", Icon: Globe },
+        { name: "HTML", description: "Semantic HTML", Icon: Globe },
+        { name: "CSS", description: "Styled Components", Icon: Globe },
+
+        { name: "Node.js", description: "Express, RESTful APIs", Icon: Globe },
       ],
       levels: [
         { skill: "React", level: 80 },
-        { skill: "Vue.js", level: 75 },
+        { skill: "HTML", level: 90 },
+        { skill: "CSS", level: 90 },
         { skill: "Node.js", level: 70 }
       ],
       certificates: [
@@ -208,12 +211,12 @@ export default function Component() {
       skills: [
         { name: "MongoDB", description: "NoSQL, Aggregation Framework, Sharding", Icon: Database },
         { name: "PostgreSQL", description: "Relational, ACID, JSON support", Icon: Database },
-        { name: "Redis", description: "In-memory, Caching, Pub/Sub", Icon: Database },
+        { name: "Mysql", description: "Relational, ACID, JSON support", Icon: Database },
       ],
       levels: [
         { skill: "MongoDB", level: 80 },
         { skill: "PostgreSQL", level: 75 },
-        { skill: "Redis", level: 70 }
+        {skill: "Mysql", level: 80}
       ],
       certificates: [
         { name: "MongoDB Developer", issuer: "MongoDB University", date: "2023", image: "/placeholder.svg?height=100&width=200" },
@@ -224,14 +227,14 @@ export default function Component() {
       title: "Operating Systems",
       icon: Terminal,
       skills: [
-        { name: "Linux", description: "Ubuntu, CentOS, Shell scripting", Icon: Terminal },
+        { name: "Linux", description: "Ubuntu, debian, Shell scripting", Icon: Terminal },
         { name: "Windows", description: "Server Administration, PowerShell", Icon: Terminal },
-        { name: "macOS", description: "Development Environment, Homebrew", Icon: Terminal },
+    
       ],
       levels: [
-        { skill: "Linux", level: 85 },
-        { skill: "Windows", level: 75 },
-        { skill: "macOS", level: 70 }
+        { skill: "Linux", level: 80 },
+        { skill: "Windows", level: 85 },
+        
       ],
       certificates: [
         { name: "Linux System Administrator", issuer: "Linux Foundation", date: "2023", image: "/placeholder.svg?height=100&width=200" },
@@ -242,14 +245,12 @@ export default function Component() {
       title: "Cloud Computing",
       icon: Cloud,
       skills: [
-        { name: "AWS", description: "EC2, S3, Lambda, CloudFormation", Icon: Cloud },
-        { name: "Google Cloud", description: "Compute Engine, BigQuery, Kubernetes Engine", Icon: Cloud },
-        { name: "Azure", description: "Virtual Machines, Blob Storage, Azure Functions", Icon: Cloud },
+        { name: "AWS", description: "EC2, S3, Lambda", Icon: Cloud },
+        
       ],
       levels: [
         { skill: "AWS", level: 80 },
-        { skill: "Google Cloud", level: 75 },
-        { skill: "Azure", level: 70 }
+        
       ],
       certificates: [
         { name: "AWS Certified Developer", issuer: "Amazon", date: "2023", image: "/placeholder.svg?height=100&width=200" },
@@ -271,7 +272,7 @@ export default function Component() {
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+            className="text-5xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-200"
           >
             My Skills Portfolio
           </motion.h1>
