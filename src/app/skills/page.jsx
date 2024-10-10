@@ -1,24 +1,41 @@
-'use client'
+"use client";
 
-import React, { useRef, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { Points, PointMaterial } from '@react-three/drei'
-import * as random from 'maath/random/dist/maath-random.esm'
-import { Code, Globe, Brain, Database, Terminal, Cloud, Award, ChevronDown } from 'lucide-react'
+import React, { useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Points, PointMaterial } from "@react-three/drei";
+import * as random from "maath/random/dist/maath-random.esm";
+import {
+  Code,
+  Globe,
+  Brain,
+  Database,
+  Terminal,
+  Cloud,
+  Award,
+  ChevronDown,
+} from "lucide-react";
 
 const StarField = (props) => {
-  const ref = useRef()
-  const [sphere] = useState(() => random.inSphere(new Float32Array(20000), { radius: 1.2 }))
+  const ref = useRef();
+  const [sphere] = useState(() =>
+    random.inSphere(new Float32Array(20000), { radius: 1.2 })
+  );
 
   useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 10
-    ref.current.rotation.y -= delta / 15
-  })
+    ref.current.rotation.x -= delta / 10;
+    ref.current.rotation.y -= delta / 15;
+  });
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
+      <Points
+        ref={ref}
+        positions={sphere}
+        stride={3}
+        frustumCulled={false}
+        {...props}
+      >
         <PointMaterial
           transparent
           color="#8b5cf6"
@@ -28,14 +45,14 @@ const StarField = (props) => {
         />
       </Points>
     </group>
-  )
-}
+  );
+};
 
 const SkillIcon = ({ Icon }) => (
   <div className="bg-gray-800 p-2 rounded-full border-2 border-purple-500  ">
     <Icon className="w-6 h-6 text-purple-400" />
   </div>
-)
+);
 
 const Skill = ({ name, description, Icon }) => (
   <motion.div
@@ -49,7 +66,7 @@ const Skill = ({ name, description, Icon }) => (
     </div>
     <p className="text-sm text-purple-100/80">{description}</p>
   </motion.div>
-)
+);
 
 const Certificate = ({ name, issuer, date, image }) => (
   <motion.div
@@ -61,11 +78,13 @@ const Certificate = ({ name, issuer, date, image }) => (
       <Award className="w-6 h-6 text-purple-400 mr-2" />
       <h3 className="text-lg font-semibold text-purple-200">{name}</h3>
     </div>
-    {image && <img src={image} alt={name} className="w-full h-auto rounded-md mb-2" />}
+    {image && (
+      <img src={image} alt={name} className="w-full h-auto rounded-md mb-2" />
+    )}
     <p className="text-sm text-purple-100/80">{issuer}</p>
     <p className="text-xs text-purple-200/60">{date}</p>
   </motion.div>
-)
+);
 
 const SkillProgressBar = ({ skill, level }) => (
   <div className="my-2">
@@ -74,13 +93,22 @@ const SkillProgressBar = ({ skill, level }) => (
       <span className="text-xs font-medium text-white">{level}%</span>
     </div>
     <div className="w-full bg-gray-700 rounded-full h-1.5">
-      <div className="bg-purple-300 h-1.5 rounded-full" style={{ width: `${level}%` }}></div>
+      <div
+        className="bg-purple-300 h-1.5 rounded-full"
+        style={{ width: `${level}%` }}
+      ></div>
     </div>
   </div>
-)
+);
 
-const SkillSection = ({ title, icon: Icon, skills = [], certificates = [], levels = [] }) => {
-  const [isOpen, setIsOpen] = useState(true)
+const SkillSection = ({
+  title,
+  icon: Icon,
+  skills = [],
+  certificates = [],
+  levels = [],
+}) => {
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <div className="mb-12">
@@ -89,7 +117,9 @@ const SkillSection = ({ title, icon: Icon, skills = [], certificates = [], level
         className="flex items-center space-x-2 text-2xl font-bold text-purple-300  transition-colors duration-300"
       >
         <SkillIcon Icon={Icon} />
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-200">{title}</span>
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-200">
+          {title}
+        </span>
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
@@ -101,7 +131,7 @@ const SkillSection = ({ title, icon: Icon, skills = [], certificates = [], level
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.5 }}
           >
@@ -109,7 +139,9 @@ const SkillSection = ({ title, icon: Icon, skills = [], certificates = [], level
               <div className="w-full lg:w-1/2 px-4">
                 {skills.length > 0 && (
                   <>
-                    <h3 className="text-xl font-semibold text-white mt-4 mb-2">Skills</h3>
+                    <h3 className="text-xl font-semibold text-white mt-4 mb-2">
+                      Skills
+                    </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                       {skills.map((skill, index) => (
                         <Skill key={index} {...skill} />
@@ -119,7 +151,9 @@ const SkillSection = ({ title, icon: Icon, skills = [], certificates = [], level
                 )}
                 {certificates.length > 0 && (
                   <>
-                    <h3 className="text-xl font-semibold text-white mt-4 mb-2">Certificates</h3>
+                    <h3 className="text-xl font-semibold text-white mt-4 mb-2">
+                      Certificates
+                    </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {certificates.map((cert, index) => (
                         <Certificate key={index} {...cert} />
@@ -131,7 +165,9 @@ const SkillSection = ({ title, icon: Icon, skills = [], certificates = [], level
               <div className="w-full lg:w-1/2 px-4">
                 {levels.length > 0 && (
                   <>
-                    <h3 className="text-xl font-semibold text-white mt-4 mb-2">Skill Levels</h3>
+                    <h3 className="text-xl font-semibold text-white mt-4 mb-2">
+                      Skill Levels
+                    </h3>
                     {levels.map((level, index) => (
                       <SkillProgressBar key={index} {...level} />
                     ))}
@@ -143,8 +179,8 @@ const SkillSection = ({ title, icon: Icon, skills = [], certificates = [], level
         )}
       </AnimatePresence>
     </div>
-  )
-}
+  );
+};
 
 export default function Component() {
   const skillSections = [
@@ -152,25 +188,58 @@ export default function Component() {
       title: "Coding Languages",
       icon: Code,
       skills: [
-        { name: "JavaScript", description: "ES6+, Async/Await, Functional Programming , OOPs ", Icon: Code },
-        { name: "Python", description: "Numpy, Pandas, Machine Learning , Neural Networks", Icon: Code },
+        {
+          name: "JavaScript",
+          description: "ES6+, Async/Await, Functional Programming , OOPs ",
+          Icon: Code,
+        },
+        {
+          name: "Python",
+          description: "Numpy, Pandas, Machine Learning , Neural Networks",
+          Icon: Code,
+        },
         { name: "Java", description: "OOPs, Multithreading ", Icon: Code },
       ],
       levels: [
         { skill: "JavaScript", level: 70 },
         { skill: "Python", level: 75 },
-        { skill: "Java", level: 80 }
+        { skill: "Java", level: 80 },
       ],
       certificates: [
-        { name: "Introduction to Python", issuer: "Coursera", date: "2024", image: "assets/Certifications/intro_to_python1.jpg?height=100&width=200" }
-      ]
+        {
+          name: "Introduction to Python",
+          issuer: "Coursera",
+          date: "2024",
+          image:
+            "assets/Certifications/intro_to_python1.jpg?height=100&width=200",
+        },
+      ],
     },
     {
       title: "Core",
       icon: Brain,
       skills: [
-        { name: "Computer Networks", description: "TCP/IP, HTTP, UDP , OSI Model , Network Security , Routing , Switching  ", Icon: Brain },
-        { name: "Multi-core computer architecture", description: " ", Icon: Brain },
+        {
+          name: "Computer Networks",
+          description:
+            "TCP/IP, HTTP, UDP , OSI Model , Network Security , Routing , Switching  ",
+          Icon: Brain,
+        },
+        {
+          name: "Multi-core computer architecture",
+          description: " ",
+          Icon: Brain,
+        },
+        {
+          name: "DSA",
+          description: "Arrays, Strings, Linked Lists, Stacks, Queues, Trees ",
+          Icon: Brain,
+        },
+        {
+          name: "OOPs",
+          description: "Encapsulation, Abstraction, Inheritance, Polymorphism ",
+          Icon: Brain,
+        },
         // { name: "scikit-learn", description: "Machine Learning, Data Preprocessing", Icon: Brain },
       ],
       levels: [
@@ -179,30 +248,49 @@ export default function Component() {
         // { skill: "scikit-learn", level: 65 }
       ],
       certificates: [
-        { name: "Multi-Core Computer Architecture", issuer: "NPTEL", date: "2023", image: "assets/Certifications/Multi-Core Computer Architecture.jpg?height=100&width=200" }
-        
-      ]
+        {
+          name: "Multi-Core Computer Architecture",
+          issuer: "NPTEL",
+          date: "2023",
+          image:
+            "assets/Certifications/Multi-Core Computer Architecture.jpg?height=100&width=200",
+        },
+      ],
     },
     {
       title: "Web Development",
       icon: Globe,
       skills: [
+        {
+          name: "Git version control",
+          description: "Git, GitHub, GitLab ",
+          Icon: Globe,
+        },
+        {
+          name: "Next.js",
+          description:
+            "Server-side Rendering, Client-side Rendering, App-routing",
+          Icon: Globe,
+        },
         { name: "React", description: "Hooks, Next.js", Icon: Globe },
         { name: "HTML", description: "Semantic HTML", Icon: Globe },
         { name: "CSS", description: "Styled Components", Icon: Globe },
-
         { name: "Node.js", description: "Express, RESTful APIs", Icon: Globe },
+        { name: "Express.js", description: "RESTful APIs", Icon: Globe },
       ],
       levels: [
+        { skill: "Git version control", level: 90 },
+        { skill: "Next.js", level: 80 },
         { skill: "React", level: 80 },
         { skill: "HTML", level: 90 },
         { skill: "CSS", level: 90 },
-        { skill: "Node.js", level: 70 }
+        { skill: "Node.js", level: 70 },
+        { skill: "Express.js", level: 70 },
       ],
       certificates: [
-        { name: "Full Stack Web Developer", issuer: "FreeCodeCamp", date: "2023", image: "/placeholder.svg?height=100&width=200" },
-        { name: "Vue.js Mastery", issuer: "Vue School", date: "2022", image: "/placeholder.svg?height=100&width=200" },
-      ]
+        // { name: "Full Stack Web Developer", issuer: "FreeCodeCamp", date: "2023", image: "/placeholder.svg?height=100&width=200" },
+        // { name: "Vue.js Mastery", issuer: "Vue School", date: "2022", image: "/placeholder.svg?height=100&width=200" },
+      ],
     },
     {
       title: "Blockchain",
@@ -215,90 +303,161 @@ export default function Component() {
         // { name: "Node.js", description: "Express, RESTful APIs", Icon: Globe },
       ],
       levels: [
-        {skill: "Solidity", level: 80}
+        { skill: "Solidity", level: 80 },
         // { skill: "React", level: 80 },
         // { skill: "HTML", level: 90 },
         // { skill: "CSS", level: 90 },
         // { skill: "Node.js", level: 70 }
       ],
       certificates: [
-        { name: "Blockchain by Infosys" , issuer: "Infosys", date: "2023", image: "assets/Certifications/Blockchain infoyses.jpg?height=100&width=200" },
+        {
+          name: "Blockchain by Infosys",
+          issuer: "Infosys",
+          date: "2023",
+          image:
+            "assets/Certifications/Blockchain infoyses.jpg?height=100&width=200",
+        },
         // { name: "Full Stack Web Developer", issuer: "FreeCodeCamp", date: "2023", image: "/placeholder.svg?height=100&width=200" },
         // { name: "Vue.js Mastery", issuer: "Vue School", date: "2022", image: "/placeholder.svg?height=100&width=200" },
-      ]
+      ],
     },
     {
       title: "AI/ML",
       icon: Brain,
       skills: [
-        { name: "TensorFlow", description: "Neural Networks, Deep Learning, Computer Vision", Icon: Brain },
-        { name: "PyTorch", description: "Dynamic Computational Graphs, NLP", Icon: Brain },
-        { name: "scikit-learn", description: "Machine Learning, Data Preprocessing", Icon: Brain },
+        {
+          name: "TensorFlow",
+          description: "Neural Networks, Deep Learning, Computer Vision",
+          Icon: Brain,
+        },
+        {
+          name: "PyTorch",
+          description: "Dynamic Computational Graphs, NLP",
+          Icon: Brain,
+        },
+        {
+          name: "scikit-learn",
+          description: "Machine Learning, Data Preprocessing",
+          Icon: Brain,
+        },
       ],
       levels: [
         { skill: "TensorFlow", level: 75 },
         { skill: "PyTorch", level: 70 },
-        { skill: "scikit-learn", level: 65 }
+        { skill: "scikit-learn", level: 65 },
       ],
       certificates: [
-        { name: "Deep Learning Specialization", issuer: "Coursera", date: "2023", image: "/placeholder.svg?height=100&width=200" },
-        { name: "Machine Learning Engineer", issuer: "Udacity", date: "2022", image: "/placeholder.svg?height=100&width=200" },
-      ]
+        {
+          name: "Deep Learning Specialization",
+          issuer: "Coursera",
+          date: "2023",
+          image: "/placeholder.svg?height=100&width=200",
+        },
+        {
+          name: "Machine Learning Engineer",
+          issuer: "Udacity",
+          date: "2022",
+          image: "/placeholder.svg?height=100&width=200",
+        },
+      ],
     },
     {
       title: "Databases",
       icon: Database,
       skills: [
-        { name: "MongoDB", description: "NoSQL, Aggregation Framework", Icon: Database },
-        { name: "PostgreSQL", description: "Relational, ACID, JSON support", Icon: Database },
+        {
+          name: "MongoDB",
+          description: "NoSQL, Aggregation Framework",
+          Icon: Database,
+        },
+        {
+          name: "PostgreSQL",
+          description: "Relational, ACID, JSON support",
+          Icon: Database,
+        },
         { name: "Mysql", description: "Relational, ACID", Icon: Database },
       ],
       levels: [
         { skill: "MongoDB", level: 80 },
         { skill: "PostgreSQL", level: 75 },
-        {skill: "Mysql", level: 80}
+        { skill: "Mysql", level: 80 },
       ],
       certificates: [
-        { name: "Intro to database by META", issuer: "Coursera", date: "2024", image: "assets/Certifications/Coursera intro to database by meta_page-0001.jpg?height=100&width=200" },
-        { name: "NO sql database by IBM", issuer: "Coursera", date: "2024", image: "assets/Certifications/Coursera No sql databases by ibm_page-0001.jpg?height=100&width=200" },
-        { name: "Introduction to RDBMS by IBM", issuer: "Coursera", date: "2024", image: "assets/Certifications/Coursera introduction to RDBMS by ibm_page-0001.jpg?height=100&width=200" },
-      ]
+        {
+          name: "Intro to database by META",
+          issuer: "Coursera",
+          date: "2024",
+          image:
+            "assets/Certifications/Coursera intro to database by meta_page-0001.jpg?height=100&width=200",
+        },
+        {
+          name: "NO sql database by IBM",
+          issuer: "Coursera",
+          date: "2024",
+          image:
+            "assets/Certifications/Coursera No sql databases by ibm_page-0001.jpg?height=100&width=200",
+        },
+        {
+          name: "Introduction to RDBMS by IBM",
+          issuer: "Coursera",
+          date: "2024",
+          image:
+            "assets/Certifications/Coursera introduction to RDBMS by ibm_page-0001.jpg?height=100&width=200",
+        },
+      ],
     },
     {
       title: "Operating Systems",
       icon: Terminal,
       skills: [
-        { name: "Linux", description: "Ubuntu, debian, Shell scripting", Icon: Terminal },
-        { name: "Windows", description: "Server Administration, PowerShell", Icon: Terminal },
-    
+        {
+          name: "Linux",
+          description: "Ubuntu, debian, Shell scripting",
+          Icon: Terminal,
+        },
+        {
+          name: "Windows",
+          description: "Server Administration, PowerShell",
+          Icon: Terminal,
+        },
       ],
       levels: [
         { skill: "Linux", level: 80 },
         { skill: "Windows", level: 85 },
-        
       ],
       certificates: [
-        { name: "Linux System Administrator", issuer: "Linux Foundation", date: "2023", image: "/placeholder.svg?height=100&width=200" },
-        { name: "Windows Server Certification", issuer: "Microsoft", date: "2022", image: "/placeholder.svg?height=100&width=200" },
-      ]
+        {
+          name: "Linux System Administrator",
+          issuer: "Linux Foundation",
+          date: "2023",
+          image: "/placeholder.svg?height=100&width=200",
+        },
+        {
+          name: "Windows Server Certification",
+          issuer: "Microsoft",
+          date: "2022",
+          image: "/placeholder.svg?height=100&width=200",
+        },
+      ],
     },
     {
       title: "Cloud Computing",
       icon: Cloud,
       skills: [
         { name: "AWS", description: "EC2, S3 ,  Load Balancer", Icon: Cloud },
-        
       ],
-      levels: [
-        { skill: "AWS", level: 80 },
-        
-      ],
+      levels: [{ skill: "AWS", level: 80 }],
       certificates: [
-        { name: "Cloud Computing", issuer: "NEPTEL", date: "2024", image: "assets/Certifications/Cloud Computing.jpg?height=100&width=200" }
-        
-      ]
+        {
+          name: "Cloud Computing",
+          issuer: "NEPTEL",
+          date: "2024",
+          image:
+            "assets/Certifications/Cloud Computing.jpg?height=100&width=200",
+        },
+      ],
     },
-  ]
+  ];
 
   return (
     <div className="relative min-h-screen bg-gray-900 text-purple-100 overflow-hidden">
@@ -330,5 +489,5 @@ export default function Component() {
         </div>
       </div>
     </div>
-  )
+  );
 }
