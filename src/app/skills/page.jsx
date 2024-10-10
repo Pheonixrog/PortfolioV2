@@ -441,6 +441,25 @@ export default function Component() {
       ],
     },
     {
+      title: "Cyber Security",
+      icon: Terminal,
+      skills: [
+        { name: "Cyber Security", description: "Netwrok Security, Linux, Cloud Computing, Cryptography, Network Architecture, Computer Security Incident Management, SQL, Risk Management, Python Programming", Icon: Terminal },
+      ],
+      levels: [
+        // { skill: "AWS", level: 80 }
+      ],
+      certificates: [
+        {
+          name: "Google Cybersecurity Professional Certificate",
+          issuer: "Google",
+          date: "2023",
+          image:
+            "assets/Certifications/Coursera google cybersecurity.jpg?height=100&width=200",
+        },
+      ],
+    },
+    {
       title: "Cloud Computing",
       icon: Cloud,
       skills: [
