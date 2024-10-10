@@ -153,7 +153,7 @@ export default function Component() {
       icon: Code,
       skills: [
         { name: "JavaScript", description: "ES6+, Async/Await, Functional Programming , OOPs ", Icon: Code },
-        { name: "Python", description: "Numpy, Pandas, Machine Learning , Nural Networks", Icon: Code },
+        { name: "Python", description: "Numpy, Pandas, Machine Learning , Neural Networks", Icon: Code },
         { name: "Java", description: "OOPs, Multithreading ", Icon: Code },
       ],
       levels: [
@@ -162,7 +162,25 @@ export default function Component() {
         { skill: "Java", level: 80 }
       ],
       certificates: [
-        { name: "Introduction to Python", issuer: "Coursera", date: "2022", image: "assets/Certifications/img1.pdf?height=100&width=200" }
+        { name: "Introduction to Python", issuer: "Coursera", date: "2024", image: "assets/Certifications/intro_to_python1.jpg?height=100&width=200" }
+      ]
+    },
+    {
+      title: "Core",
+      icon: Brain,
+      skills: [
+        { name: "Computer Networks", description: "TCP/IP, HTTP, UDP , OSI Model , Network Security , Routing , Switching  ", Icon: Brain },
+        { name: "Multi-core computer architecture", description: " ", Icon: Brain },
+        // { name: "scikit-learn", description: "Machine Learning, Data Preprocessing", Icon: Brain },
+      ],
+      levels: [
+        // { skill: "TensorFlow", level: 75 },
+        // { skill: "PyTorch", level: 70 },
+        // { skill: "scikit-learn", level: 65 }
+      ],
+      certificates: [
+        { name: "Multi-Core Computer Architecture", issuer: "NPTEL", date: "2023", image: "assets/Certifications/Multi-Core Computer Architecture.jpg?height=100&width=200" }
+        
       ]
     },
     {
@@ -187,6 +205,29 @@ export default function Component() {
       ]
     },
     {
+      title: "Blockchain",
+      icon: Globe,
+      skills: [
+        { name: "Solidity", description: " Solidity ", Icon: Globe },
+        // { name: "HTML", description: "Semantic HTML", Icon: Globe },
+        // { name: "CSS", description: "Styled Components", Icon: Globe },
+
+        // { name: "Node.js", description: "Express, RESTful APIs", Icon: Globe },
+      ],
+      levels: [
+        {skill: "Solidity", level: 80}
+        // { skill: "React", level: 80 },
+        // { skill: "HTML", level: 90 },
+        // { skill: "CSS", level: 90 },
+        // { skill: "Node.js", level: 70 }
+      ],
+      certificates: [
+        { name: "Blockchain by Infosys" , issuer: "Infosys", date: "2023", image: "assets/Certifications/Blockchain infoyses.jpg?height=100&width=200" },
+        // { name: "Full Stack Web Developer", issuer: "FreeCodeCamp", date: "2023", image: "/placeholder.svg?height=100&width=200" },
+        // { name: "Vue.js Mastery", issuer: "Vue School", date: "2022", image: "/placeholder.svg?height=100&width=200" },
+      ]
+    },
+    {
       title: "AI/ML",
       icon: Brain,
       skills: [
@@ -208,9 +249,9 @@ export default function Component() {
       title: "Databases",
       icon: Database,
       skills: [
-        { name: "MongoDB", description: "NoSQL, Aggregation Framework, Sharding", Icon: Database },
+        { name: "MongoDB", description: "NoSQL, Aggregation Framework", Icon: Database },
         { name: "PostgreSQL", description: "Relational, ACID, JSON support", Icon: Database },
-        { name: "Mysql", description: "Relational, ACID, JSON support", Icon: Database },
+        { name: "Mysql", description: "Relational, ACID", Icon: Database },
       ],
       levels: [
         { skill: "MongoDB", level: 80 },
@@ -218,8 +259,9 @@ export default function Component() {
         {skill: "Mysql", level: 80}
       ],
       certificates: [
-        { name: "MongoDB Developer", issuer: "MongoDB University", date: "2023", image: "/placeholder.svg?height=100&width=200" },
-        { name: "SQL for Data Science", issuer: "Coursera", date: "2022", image: "/placeholder.svg?height=100&width=200" },
+        { name: "Intro to database by META", issuer: "Coursera", date: "2024", image: "assets/Certifications/Coursera intro to database by meta_page-0001.jpg?height=100&width=200" },
+        { name: "NO sql database by IBM", issuer: "Coursera", date: "2024", image: "assets/Certifications/Coursera No sql databases by ibm_page-0001.jpg?height=100&width=200" },
+        { name: "Introduction to RDBMS by IBM", issuer: "Coursera", date: "2024", image: "assets/Certifications/Coursera introduction to RDBMS by ibm_page-0001.jpg?height=100&width=200" },
       ]
     },
     {
@@ -244,7 +286,7 @@ export default function Component() {
       title: "Cloud Computing",
       icon: Cloud,
       skills: [
-        { name: "AWS", description: "EC2, S3, Lambda", Icon: Cloud },
+        { name: "AWS", description: "EC2, S3 ,  Load Balancer", Icon: Cloud },
         
       ],
       levels: [
@@ -252,8 +294,8 @@ export default function Component() {
         
       ],
       certificates: [
-        { name: "AWS Certified Developer", issuer: "Amazon", date: "2023", image: "/placeholder.svg?height=100&width=200" },
-        { name: "Google Cloud Architect", issuer: "Google", date: "2022", image: "/placeholder.svg?height=100&width=200" },
+        { name: "Cloud Computing", issuer: "NEPTEL", date: "2024", image: "assets/Certifications/Cloud Computing.jpg?height=100&width=200" }
+        
       ]
     },
   ]
