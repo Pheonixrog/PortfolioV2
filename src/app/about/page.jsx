@@ -263,9 +263,9 @@ export default function AboutPage() {
               Achievements
             </h2>
             <ul className="list-disc list-inside space-y-2 text-gray-300">
-              <li>Led a team in developing a blockchain-based delivery system</li>
-              <li>Created a dark pattern detection tool for ethical web design</li>
-              <li>Developed an educational website with an accessibility-focused extension</li>
+              <li>DPBH: Dark Pattern Buster Hackathon 2023 Finalist, National-level hackathon held at IIT BHU</li>
+              <li>BFCET-hack: Secured the 3rd runner-up position at a national-level hackathon, demonstrating our team's excellencein innovation.</li>
+              <li>For two consecutive years (2018-2019, 2019-2020),  triumphed as state champion and subsequently excelled at thenational level in Mathematics and Science exhibition</li>
               <li>Participated in multiple hackathons, securing top positions</li>
             </ul>
           </motion.section>
@@ -318,11 +318,11 @@ export default function AboutPage() {
           <div className="flex flex-col space-y-2">
             <a href="mailto:your.email@example.com" className="flex items-center">
               <Mail className="w-5 h-5 mr-2" />
-              your.email@example.com
+              rishabhasus9gmail.com
             </a>
             <a href="tel:+1234567890" className="flex items-center">
               <Phone className="w-5 h-5 mr-2" />
-              +1 (234) 567-890
+              +91 6284238693
             </a>
           </div>
         </div>
