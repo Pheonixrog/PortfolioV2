@@ -69,7 +69,7 @@ export default function AboutPage() {
     target: containerRef,
     offset: ["start start", "end end"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-0%"]);
 
   const interests = useMemo(
     () => [
