@@ -264,7 +264,7 @@ export default function AboutPage() {
             </h2>
             <ul className="list-disc list-inside space-y-2 text-gray-300">
               <li>DPBH: Dark Pattern Buster Hackathon 2023 Finalist, National-level hackathon held at IIT BHU</li>
-              <li>BFCET-hack: Secured the 3rd runner-up position at a national-level hackathon, demonstrating our team's excellencein innovation.</li>
+              <li>BFCET-hack: Secured the 3rd runner-up position at a national-level hackathon, demonstrating our team&apos;s excellencein innovation.</li>
               <li>For two consecutive years (2018-2019, 2019-2020),  triumphed as state champion and subsequently excelled at thenational level in Mathematics and Science exhibition</li>
               <li>Participated in multiple hackathons, securing top positions</li>
             </ul>
