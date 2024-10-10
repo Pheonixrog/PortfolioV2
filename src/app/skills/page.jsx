@@ -162,8 +162,7 @@ export default function Component() {
         { skill: "Java", level: 80 }
       ],
       certificates: [
-        { name: "Advanced JavaScript", issuer: "Udacity", date: "2023", image: "/placeholder.svg?height=100&width=200" },
-        { name: "Python for Data Science", issuer: "Coursera", date: "2022", image: "/placeholder.svg?height=100&width=200" },
+        { name: "Introduction to Python", issuer: "Coursera", date: "2022", image: "assets/Certifications/img1.pdf?height=100&width=200" }
       ]
     },
     {

@@ -67,7 +67,7 @@ function Component() {
       {
         id: 3,
         title: "Coading Platform",
-        description: "An educational coading platform, you can play with codein playground or compete with others in coding challenges.",
+        description: "An educational coading platform, you can play with code in playground or compete with others in coding challenges.",
         image: "assets/projects/coadingplatform/img1.png?height=400&width=600",
         // video: "/placeholder.svg?height=400&width=600",
         github: "https://github.com/Pheonixrog/Coading-Platform",
