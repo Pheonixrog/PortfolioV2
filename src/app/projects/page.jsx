@@ -55,14 +55,14 @@ function Component() {
         image: "assets/projects/supplychain/img1.png?height=400&width=600",
         // video: "/placeholder.svg?height=400&width=600",
         github: "https://github.com/withrajatsharma/supply-chain",
-        deployment: "https://github.com/withrajatsharma/supply-chain"
+        // deployment: "https://github.com/withrajatsharma/supply-chain"
       },
       {
         id: 2,
         title: "Flow Spector (Dark Pattern Detection Chrome Extension & Educational Platform)",
         description: "Developed a Chrome extension aimed at improving user experience by detecting and countering dark patterns onwebsites. Additionally, created an educational platform tailored for diverse learners, with personalized learningexperiences. Integrated the Gemini API to analyze website images, identifying dark patterns and enhancing digital ethicson the platform.",
         image: "assets/projects/darkpattern/img1.png?height=400&width=600",
-        github: "https://github.com/withrajatsharma/spector-flow.git"
+        github: "https://github.com/Pheonixrog/Flow-spector"
       },
       {
         id: 3,
@@ -149,7 +149,7 @@ const ProjectSection = ({ project, index }) => {
         <p className="text-gray-300 mb-6">{project.description}</p>
         <div className="flex flex-wrap gap-4">
           {project.github && (
-            <Button variant="outline" asChild>
+            <Button className='bg-black' variant="outline" asChild>
               <Link href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
                 <Github className="w-5 h-5" />
                 <span>GitHub</span>
