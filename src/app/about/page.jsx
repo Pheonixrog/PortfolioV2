@@ -201,7 +201,7 @@ export default function AboutPage() {
               innovation.
               <br />
               <br />
-              <strong>Let's connect if you&apos;re looking for a results-driven
+              <strong>Let&apos;s connect if you&apos;re looking for a results-driven
               developer with a passion for new technologies!</strong>
             </p>
           </motion.section>
