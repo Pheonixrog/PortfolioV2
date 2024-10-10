@@ -39,39 +39,39 @@ function Component() {
 
   useEffect(() => {
     setProjects([
+      // {
+      //   id: 1,
+      //   title: "AI-Powered Portfolio Generator",
+      //   description: "A web application that uses AI to generate personalized portfolio websites based on user input and preferences.",
+      //   image: "/placeholder.svg?height=400&width=600",
+      //   video: "/placeholder.svg?height=400&width=600",
+      //   github: "https://github.com/yourusername/ai-portfolio-generator",
+      //   deployment: "https://ai-portfolio-generator.com"
+      // },
       {
         id: 1,
-        title: "AI-Powered Portfolio Generator",
-        description: "A web application that uses AI to generate personalized portfolio websites based on user input and preferences.",
-        image: "/placeholder.svg?height=400&width=600",
-        video: "/placeholder.svg?height=400&width=600",
-        github: "https://github.com/yourusername/ai-portfolio-generator",
-        deployment: "https://ai-portfolio-generator.com"
+        title: "Tessaract (Blockchain-based Supply Chain Tracker)",
+        description: "A decentralized application (dApp) for tracking products through the supply chain, ensuring transparency and authenticity.",
+        image: "assets/projects/supplychain/img1.png?height=400&width=600",
+        // video: "/placeholder.svg?height=400&width=600",
+        github: "https://github.com/withrajatsharma/supply-chain",
+        deployment: "https://github.com/withrajatsharma/supply-chain"
       },
       {
         id: 2,
-        title: "Blockchain-based Supply Chain Tracker",
-        description: "A decentralized application (dApp) for tracking products through the supply chain, ensuring transparency and authenticity.",
-        image: "/placeholder.svg?height=400&width=600",
-        video: "/placeholder.svg?height=400&width=600",
-        github: "https://github.com/yourusername/blockchain-supply-chain",
-        deployment: "https://supply-chain-dapp.eth"
+        title: "Flow Spector (Dark Pattern Detection Chrome Extension & Educational Platform)",
+        description: "Developed a Chrome extension aimed at improving user experience by detecting and countering dark patterns onwebsites. Additionally, created an educational platform tailored for diverse learners, with personalized learningexperiences. Integrated the Gemini API to analyze website images, identifying dark patterns and enhancing digital ethicson the platform.",
+        image: "assets/projects/darkpattern/img1.png?height=400&width=600",
+        github: "https://github.com/withrajatsharma/spector-flow.git"
       },
       {
         id: 3,
-        title: "Quantum Computing Simulator",
-        description: "A web-based quantum circuit simulator that allows users to design and test quantum algorithms in the browser.",
-        image: "/placeholder.svg?height=400&width=600",
-        github: "https://github.com/yourusername/quantum-simulator"
-      },
-      {
-        id: 4,
-        title: "AR-Enhanced Learning Platform",
-        description: "An educational platform that uses Augmented Reality to create immersive learning experiences for various subjects.",
-        image: "/placeholder.svg?height=400&width=600",
-        video: "/placeholder.svg?height=400&width=600",
-        github: "https://github.com/yourusername/ar-learning-platform",
-        deployment: "https://ar-learn.edu"
+        title: "Coading Platform",
+        description: "An educational coading platform, you can play with codein playground or compete with others in coding challenges.",
+        image: "assets/projects/coadingplatform/img1.png?height=400&width=600",
+        // video: "/placeholder.svg?height=400&width=600",
+        github: "https://github.com/Pheonixrog/Coading-Platform",
+        // deployment: "https://ar-learn.edu"
       }
     ])
   }, [])
