@@ -72,6 +72,16 @@ function Component() {
         // video: "/placeholder.svg?height=400&width=600",
         github: "https://github.com/Pheonixrog/Coading-Platform",
         // deployment: "https://ar-learn.edu"
+      },
+      {
+        id: 4,
+        title: "Portfolio",
+        description: "A next.js portfolio website which showcases my skills and projects.",
+        image: "assets/projects/porfolio/img1.png?height=400&width=600",
+        // video: "/placeholder.svg?height=400&width=600",
+        github: "https://github.com/Pheonixrog/PortfolioV2",
+        // deployment: "https://ar-learn.edu"
+
       }
     ])
   }, [])
