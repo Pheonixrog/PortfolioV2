@@ -307,13 +307,13 @@ export default function AboutPage() {
           <h2 className="text-2xl font-semibold mb-4">Contact Me</h2>
           <div className="flex flex-col space-y-2">
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:rishabhasus9@gmail"
               className="flex items-center"
             >
               <Mail className="w-5 h-5 mr-2" />
               rishabhasus9@gmail.com
             </a>
-            <a href="tel:+1234567890" className="flex items-center">
+            <a href="tel:+916284238693" className="flex items-center">
               <Phone className="w-5 h-5 mr-2" />
               +91 6284238693
             </a>
