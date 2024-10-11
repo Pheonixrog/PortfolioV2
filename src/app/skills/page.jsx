@@ -348,10 +348,10 @@ export default function Component() {
       ],
       certificates: [
         {
-          name: "Deep Learning Specialization",
+          name: "Introduction to Machine learning",
           issuer: "NPTEL",
           date: "2024",
-          image: "assets/Certifications/Introduction To Machine Learning - IITKGP.jpg?height=100&width=200",
+          image: "assets/Certifications/Introduction To Machine Learning - IITKGP_page-0001.jpg?height=100&width=200",
         },
         // {
         //   name: "Machine Learning Engineer",

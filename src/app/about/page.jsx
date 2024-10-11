@@ -293,11 +293,11 @@ export default function AboutPage() {
               icon={Linkedin}
               label="LinkedIn"
             />
-            <SocialLink
+            {/* <SocialLink
               href="https://leetcode.com/u/rishabhasus9/"
               icon={Code}
               label="LeetCode"
-            />
+            /> */}
           </motion.div>
         </motion.div>
       </div>
@@ -311,11 +311,11 @@ export default function AboutPage() {
               className="flex items-center"
             >
               <Mail className="w-5 h-5 mr-2" />
-              your.email@example.com
+              rishabhasus9@gmail.com
             </a>
             <a href="tel:+1234567890" className="flex items-center">
               <Phone className="w-5 h-5 mr-2" />
-              +1 (234) 567-890
+              +91 6284238693
             </a>
           </div>
         </div>

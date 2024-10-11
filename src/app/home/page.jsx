@@ -288,7 +288,7 @@ export default function HomePage() {
           >
             <SocialLink href="https://github.com/Pheonixrog" icon={Github} label="GitHub" />
             <SocialLink href="https://www.linkedin.com/in/rishabh-katiyar-30b136252/" icon={Linkedin} label="LinkedIn" />
-            <SocialLink href="https://leetcode.com/u/rishabhasus9/" icon={Code} label="LeetCode" />
+            {/* <SocialLink href="https://leetcode.com/u/rishabhasus9/" icon={Code} label="LeetCode" /> */}
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
