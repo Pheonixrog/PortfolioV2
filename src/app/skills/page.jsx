@@ -2,9 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Points, PointMaterial } from "@react-three/drei";
-import * as random from "maath/random/dist/maath-random.esm";
+
 import {
   Code,
   Globe,
@@ -15,38 +13,6 @@ import {
   Award,
   ChevronDown,
 } from "lucide-react";
-
-const StarField = (props) => {
-  const ref = useRef();
-  const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(20000), { radius: 1.2 })
-  );
-
-  useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 10;
-    ref.current.rotation.y -= delta / 15;
-  });
-
-  return (
-    <group rotation={[0, 0, Math.PI / 4]}>
-      <Points
-        ref={ref}
-        positions={sphere}
-        stride={3}
-        frustumCulled={false}
-        {...props}
-      >
-        <PointMaterial
-          transparent
-          color="#8b5cf6"
-          size={0.001}
-          sizeAttenuation={true}
-          depthWrite={false}
-        />
-      </Points>
-    </group>
-  );
-};
 
 const SkillIcon = ({ Icon }) => (
   <div className="bg-gray-800 p-2 rounded-full border-2 border-purple-500  ">
@@ -200,11 +166,7 @@ export default function Component() {
         },
         { name: "Java", description: "OOPs, Multithreading ", Icon: Code },
       ],
-      levels: [
-        { skill: "JavaScript", level: 70 },
-        { skill: "Python", level: 75 },
-        { skill: "Java", level: 80 },
-      ],
+
       certificates: [
         {
           name: "Introduction to Python",
@@ -240,13 +202,8 @@ export default function Component() {
           description: "Encapsulation, Abstraction, Inheritance, Polymorphism ",
           Icon: Brain,
         },
-        // { name: "scikit-learn", description: "Machine Learning, Data Preprocessing", Icon: Brain },
       ],
-      levels: [
-        // { skill: "TensorFlow", level: 75 },
-        // { skill: "PyTorch", level: 70 },
-        // { skill: "scikit-learn", level: 65 }
-      ],
+      levels: [],
       certificates: [
         {
           name: "Multi-Core Computer Architecture",
@@ -278,37 +235,14 @@ export default function Component() {
         { name: "Node.js", description: "Express, RESTful APIs", Icon: Globe },
         { name: "Express.js", description: "RESTful APIs", Icon: Globe },
       ],
-      levels: [
-        { skill: "Git version control", level: 90 },
-        { skill: "Next.js", level: 80 },
-        { skill: "React", level: 80 },
-        { skill: "HTML", level: 90 },
-        { skill: "CSS", level: 90 },
-        { skill: "Node.js", level: 70 },
-        { skill: "Express.js", level: 70 },
-      ],
-      certificates: [
-        // { name: "Full Stack Web Developer", issuer: "FreeCodeCamp", date: "2023", image: "/placeholder.svg?height=100&width=200" },
-        // { name: "Vue.js Mastery", issuer: "Vue School", date: "2022", image: "/placeholder.svg?height=100&width=200" },
-      ],
+
+      certificates: [],
     },
     {
       title: "Blockchain",
       icon: Globe,
-      skills: [
-        { name: "Solidity", description: " Solidity ", Icon: Globe },
-        // { name: "HTML", description: "Semantic HTML", Icon: Globe },
-        // { name: "CSS", description: "Styled Components", Icon: Globe },
+      skills: [{ name: "Solidity", description: " Solidity ", Icon: Globe }],
 
-        // { name: "Node.js", description: "Express, RESTful APIs", Icon: Globe },
-      ],
-      levels: [
-        { skill: "Solidity", level: 80 },
-        // { skill: "React", level: 80 },
-        // { skill: "HTML", level: 90 },
-        // { skill: "CSS", level: 90 },
-        // { skill: "Node.js", level: 70 }
-      ],
       certificates: [
         {
           name: "Blockchain by Infosys",
@@ -317,8 +251,6 @@ export default function Component() {
           image:
             "assets/Certifications/Blockchain infoyses.jpg?height=100&width=200",
         },
-        // { name: "Full Stack Web Developer", issuer: "FreeCodeCamp", date: "2023", image: "/placeholder.svg?height=100&width=200" },
-        // { name: "Vue.js Mastery", issuer: "Vue School", date: "2022", image: "/placeholder.svg?height=100&width=200" },
       ],
     },
     {
@@ -341,24 +273,15 @@ export default function Component() {
           Icon: Brain,
         },
       ],
-      levels: [
-        { skill: "TensorFlow", level: 75 },
-        { skill: "Pandas", level: 70 },
-        { skill: "Matplotlib", level: 65 },
-      ],
+
       certificates: [
         {
           name: "Introduction to Machine learning",
           issuer: "NPTEL",
           date: "2024",
-          image: "assets/Certifications/Introduction To Machine Learning - IITKGP_page-0001.jpg?height=100&width=200",
+          image:
+            "assets/Certifications/Introduction To Machine Learning - IITKGP_page-0001.jpg?height=100&width=200",
         },
-        // {
-        //   name: "Machine Learning Engineer",
-        //   issuer: "Udacity",
-        //   date: "2022",
-        //   image: "/placeholder.svg?height=100&width=200",
-        // },
       ],
     },
     {
@@ -377,11 +300,7 @@ export default function Component() {
         },
         { name: "Mysql", description: "Relational, ACID", Icon: Database },
       ],
-      levels: [
-        { skill: "MongoDB", level: 80 },
-        { skill: "PostgreSQL", level: 75 },
-        { skill: "Mysql", level: 80 },
-      ],
+
       certificates: [
         {
           name: "Intro to database by META",
@@ -421,34 +340,21 @@ export default function Component() {
           Icon: Terminal,
         },
       ],
-      levels: [
-        { skill: "Linux", level: 80 },
-        { skill: "Windows", level: 85 },
-      ],
-      certificates: [
-        // {
-        //   name: "Linux System Administrator",
-        //   issuer: "Linux Foundation",
-        //   date: "2023",
-        //   image: "/placeholder.svg?height=100&width=200",
-        // },
-        // {
-        //   name: "Windows Server Certification",
-        //   issuer: "Microsoft",
-        //   date: "2022",
-        //   image: "/placeholder.svg?height=100&width=200",
-        // },
-      ],
+
+      certificates: [],
     },
     {
       title: "Cyber Security",
       icon: Terminal,
       skills: [
-        { name: "Cyber Security", description: "Netwrok Security, Linux, Cloud Computing, Cryptography, Network Architecture, Computer Security Incident Management, SQL, Risk Management, Python Programming", Icon: Terminal },
+        {
+          name: "Cyber Security",
+          description:
+            "Netwrok Security, Linux, Cloud Computing, Cryptography, Network Architecture, Computer Security Incident Management, SQL, Risk Management, Python Programming",
+          Icon: Terminal,
+        },
       ],
-      levels: [
-        // { skill: "AWS", level: 80 }
-      ],
+
       certificates: [
         {
           name: "Google Cybersecurity Professional Certificate",
@@ -465,7 +371,7 @@ export default function Component() {
       skills: [
         { name: "AWS", description: "EC2, S3 ,  Load Balancer", Icon: Cloud },
       ],
-      levels: [{ skill: "AWS", level: 80 }],
+
       certificates: [
         {
           name: "Cloud Computing",
@@ -479,34 +385,35 @@ export default function Component() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-gray-900 text-purple-100 overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <Canvas camera={{ position: [0, 0, 1] }}>
-          <StarField />
-        </Canvas>
-      </div>
-      <div className="relative z-10">
-        <div className="container mx-auto px-4 py-16">
-          <motion.h1
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-200"
-          >
-            My Skills Portfolio
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="space-y-16"
-          >
-            {skillSections.map((section, index) => (
-              <SkillSection key={index} {...section} />
-            ))}
-          </motion.div>
+    <>
+      {" "}
+      <section id="skills">
+        <div className="relative min-h-screen bg-gray-900 text-purple-100 overflow-hidden">
+          <div className="absolute inset-0 z-0"></div>
+          <div className="relative z-10">
+            <div className="container mx-auto px-4 py-16">
+              <motion.h1
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-5xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-200"
+              >
+                My Skills Portfolio
+              </motion.h1>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="space-y-16"
+              >
+                {skillSections.map((section, index) => (
+                  <SkillSection key={index} {...section} />
+                ))}
+              </motion.div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }

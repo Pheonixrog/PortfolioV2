@@ -230,7 +230,9 @@ export default function HomePage() {
 }, [])
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-gray-100' : 'bg-gray-100 text-gray-900'} transition-colors duration-300`}>
+    <> <section id="home">
+     
+    <div className={`min-h-screen ${darkMode ? 'bg-black text-gray-100' : 'bg-gray-100 text-gray-900'} transition-colors duration-300`}>
       <style jsx>{`
         html {
           scroll-behavior: smooth;
@@ -308,15 +310,16 @@ export default function HomePage() {
       </div>
 
       {/* Theme Toggle */}
-      <Button
+      {/* <Button
         className="fixed bottom-4 right-4 p-2 rounded-full hover-target"
         onClick={() => setDarkMode(!darkMode)}
       >
         {darkMode ? <Sun className="h-6 w-6" /> : <Moon className="h-6 w-6" />}
-      </Button>
+      </Button> */}
       
 
       
     </div>
+    </section></>
   )
 }
