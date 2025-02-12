@@ -45,6 +45,13 @@ const initialMedia: MediaItem[] = [
     type: "image",
     defaultPos: { x: 0, y: 4, w: 4, h: 4 },
     hoverText: "Flow Spector (Dark Pattern Detection Chrome Extension & Educational Platform)"
+  },
+  {
+    id: 5,
+    src: "image1.png",
+    type: "image",
+    defaultPos: { x: 4, y: 4, w: 4, h: 4 },
+    hoverText: "Taxeasy "
   }
 ]
 
