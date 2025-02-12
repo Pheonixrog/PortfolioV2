@@ -34,14 +34,14 @@ const initialMedia: MediaItem[] = [
   },
   {
     id: 3,
-    src: "assets/projects/coadingplatform/img1.png?height=400&width=600",
+    src: "assets/projects/coadingplatform/img1.png",
     type: "image",
     defaultPos: { x: 8, y: 0, w: 4, h: 4 },
     hoverText: "Coading Platform - Play with code or compete in challenges"
   },
   {
     id: 4,
-    src: "assets/projects/darkpattern/img1.png?height=400&width=600",
+    src: "assets/projects/darkpattern/img1.png",
     type: "image",
     defaultPos: { x: 0, y: 4, w: 4, h: 4 },
     hoverText: "Flow Spector (Dark Pattern Detection Chrome Extension & Educational Platform)"
@@ -52,6 +52,13 @@ const initialMedia: MediaItem[] = [
     type: "image",
     defaultPos: { x: 4, y: 4, w: 4, h: 4 },
     hoverText: "Taxeasy "
+  },
+  {
+    id: 6,
+    src: "image2.png",
+    type: "image",
+    defaultPos: { x: 8, y: 4, w: 4, h: 4 },
+    hoverText: "Affordable Agency"
   }
 ]
 
